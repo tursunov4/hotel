@@ -37,9 +37,7 @@ function MyForm({ children, type, ...props }) {
                     }).then(res=>{                        
                       localStorage.setItem('token' , res.data.tokens.access)
                       localStorage.setItem('id' , res.data.id)
-                      localStorage.setItem('firstname' , res.data.first_name)
-                      localStorage.setItem('lastname' , res.data.last)
-                      localStorage.setItem('image' ,res.data.image_url)
+                      
                       console.log(res)
                         if(res.status === 200){
                          navigate('/object-manage')
