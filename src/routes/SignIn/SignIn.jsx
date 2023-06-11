@@ -17,12 +17,14 @@ function SignIn() {
          password: password,
          tokens :'dfdfdf'
         }).then((res) =>{
-       localStorage.setItem('token' , res.data.data.tokens.access)
-       localStorage.setItem('id', res.data.data.id)
+       localStorage.setItem('token' , res.data.tokens.access)
+       localStorage.setItem('id', res.data.id)
       if(res.status === 200){
         window.location.reload()
         console.log(res)
       }
+   
+      
       }).catch((err) =>{
         console.log(err)
       })
