@@ -1,0 +1,114 @@
+.form {
+  text-align: center;
+  max-width: 408px;
+  margin: 0 auto;
+  padding: 100px 24px 100px;
+  .title {
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 49px;
+    text-shadow: 1px 2px 4px #2921216e;
+    margin-bottom: 0px;
+  }
+  .sub-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-shadow: 1px 2px 4px #2921216e;
+    margin: 8px 0 50px;
+  }
+  .logo {
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 8px;
+  }
+  .goole-btn {
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px 24px;
+    color: #221308;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #fff;
+    box-shadow: 1px 5px 10px #8c8c8c6e;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .btn {
+    box-shadow: 1px 5px 10px #8c8c8c6e;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .question-answer {
+    text-shadow: 1px 2px 4px #c580804f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #6b5749;
+    a {
+      color: #f08143;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .or {
+    position: relative;
+    margin-bottom: 30px;
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      border: 1px solid #cdcad9;
+      position: absolute;
+      top: 50%;
+      box-shadow: 1px 2px 3px #a5a0a06e;
+      transform: translate(0, -50%);
+    }
+    span {
+      position: relative;
+      z-index: 1;
+      padding: 0 16px;
+      color: #cdcad9;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      background: #fff;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .form {
+    .title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    .sub-title {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    .goole-btn {
+      font-size: 14px;
+      line-height: 16px;
+      gap: 4px;
+      padding: 10px 12px;
+    }
+    .question-answer {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+}

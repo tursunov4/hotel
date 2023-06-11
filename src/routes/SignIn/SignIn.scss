@@ -1,0 +1,40 @@
+.input {
+  margin-bottom: 20px;
+  position: relative;
+  display: block;
+  & input {
+    padding-left: 40px;
+  }
+  &::before {
+    content: "";
+    width: 14px;
+    height: 16px;
+    display: block;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+.input:first-of-type::before {
+  background-image: url(../../assets/icons/person.svg);
+}
+.input:nth-of-type(2)::before {
+  background-image: url(../../assets/icons/lock.svg);
+}
+.forgot {
+  margin-bottom: 10px;
+  text-align: right;
+  a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #f08143;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

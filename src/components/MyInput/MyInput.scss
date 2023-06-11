@@ -1,0 +1,27 @@
+.my-input {
+  border: 1px solid #e2e2e2;
+  border-radius: 11px;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 16px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #221308;
+  outline: none;
+  &::placeholder {
+    color: #484f5b;
+    opacity: 0.5;
+  }
+  &:focus {
+    border: 1px solid #f08143;
+  }
+}
+@media screen and (max-width: 450px) {
+  .my-input {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

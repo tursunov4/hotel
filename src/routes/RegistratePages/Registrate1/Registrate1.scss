@@ -1,0 +1,87 @@
+.registr {
+  .raw {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1080px;
+    gap: 40px;
+  }
+  .regist-form {
+    max-width: 498px;
+    color: #000000;
+    text-align-last: left;
+    padding-top: 60px;
+  }
+  .map_component {
+    width:  73%;
+    height: 424px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .regist-form__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 45px;
+  }
+  .regist-form__lable {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 45px;
+    margin-bottom: 15px;
+  }
+  .regist-form__double-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+  }
+  & .my-input {
+  }
+  .bottom-form {
+    display: flex;
+    align-items: center;
+    max-width: 1080px;
+    justify-content: flex-end;
+    gap: 25px;
+    margin-top: 30px;
+  }
+  .name__location {
+    background: #f7f7f7;
+    border-radius: 5px;
+    padding: 10px 40px 10px 15px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    max-width: 413px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .registr {
+  
+    .raw {
+      justify-content: center;
+      // flex-direction: column;
+    }
+  }
+}
+@media screen and (max-width:912px) {
+  .register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .raw{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width:620px) {
+  
+}

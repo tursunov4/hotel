@@ -1,0 +1,86 @@
+.file-input-wrap {
+  min-height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #e2e2e2;
+  position: relative;
+  border-radius: 5px;
+  position: relative;
+  padding: 10px;
+  strong {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: rgba(0, 32, 51, 0.6);
+  }
+  span {
+    display: block;
+    color: rgba(0, 32, 51, 0.3);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+  }
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+.file-input-label {
+  max-width: 310px;
+  display: block;
+  text-align: center;
+}
+.file-input-button {
+  color: #f08143;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  background: rgba(240, 129, 67, 0.07);
+  border-radius: 4px;
+  padding: 6px 16px 6px 35px;
+  margin-top: 12px;
+  position: relative;
+  &::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: url(./../../../../assets/icons/IconAttach.svg) center / contain no-repeat;
+  }
+  &.disable {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .file-input-wrap {
+    width: 100%;
+    height: 222px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .file-input-wrap {
+    height: 152.83px;
+    strong,
+    span {
+      font-size: 12px;
+      line-height: 140%;
+    }
+  }
+  .file-input-button {
+    font-size: 12px;
+    line-height: 24px;
+  }
+}
