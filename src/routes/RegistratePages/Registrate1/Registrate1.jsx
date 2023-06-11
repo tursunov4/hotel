@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Registrate1() {
   const id = localStorage.getItem('id')
-
+  const token = localStorage.getItem('token')
   const [data, setData] = useState({
     nameOtel: "",
     address: "",
@@ -27,27 +27,50 @@ function Registrate1() {
   const notify = (text) => toast(`${text}`);
  
   const sendToMainInfo =(e)=>{
-    e.preventDefault()
-    http.post("/partner/hotels/create/" , {   
-      partner: id-0,
-    title:data.nameOtel,
-  website: data.address,
-  contact_info: data.contact,
-  email: data.email,
-  country: data.state,
-  city: data.city,
-  address: data.street,
-  location:`${placemarkGeometry[0]};${placemarkGeometry[1]}`,
 
-    }).then((res) =>{
-      console.log(res.data)
-      if(res.status === 201){
-        navigate(`/register-single/${res.data.id}`)
-      }
-    }).catch((err) =>{
-      notify( 'ошибка ввода !!!' )
-    })
-  }
+    e.preventDefault()
+  //   http.post("/partner/hotels/create/" , {   
+  //     partner: id-0,
+  //   title:data.nameOtel,
+  // website: data.address,
+  // contact_info: data.contact,
+  // email: data.email,
+  // country: data.state,
+  // city: data.city,
+  // address: data.street,
+  // location:`${placemarkGeometry[0]};${placemarkGeometry[1]}`,
+
+  //   }).then((res) =>{
+  //     console.log(res.data)
+  //     if(res.status === 201){
+  //       navigate(`/register-single/${res.data.id}`)
+  //     }
+  //   }).catch((err) =>{
+  //     notify( 'ошибка ввода !!!' )
+  //   })
+  fetch(`${process.env.REACT_APP_API}/partner/hotels/create/`,{
+    method:"POST",
+    body:JSON.stringify({
+      partner: id-0,
+        title:data.nameOtel,
+      website: data.address,
+      contact_info: data.contact,
+      email: data.email,
+      country: data.state,
+      city: data.city,
+      address: data.street,
+      location:`${placemarkGeometry[0]};${placemarkGeometry[1]}`
+    }),
+    headers:{
+        "Content-Type": "application/json",
+        "Authorization": `${token}`
+    }
+}).then((res)=>{
+  console.log(res.data)
+})
+
+ }
+
   const mapState = {
     center: [55.751574, 37.573856],
     zoom: 10,
@@ -63,7 +86,7 @@ function Registrate1() {
   };
   const handleButton1 =()=>{
     setButton(true)
-    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=a1790995-bbe5-41eb-8c22-35713a9dbbb8&format=json&geocode=${placemarkGeometry[0]},${placemarkGeometry[1]}`).then((res)=>{
+    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=a1790995-bbe5-41eb-8c22-35713a9dbbb8&format=json&geocode=${placemarkGeometry[1]},${placemarkGeometry[0]}`).then((res)=>{
       setAdres(res.data.response.GeoObjectCollection.featureMember[0].GeoObject.metaDataProperty.GeocoderMetaData.Address.formatted)
   }).catch((err)=>{
     console.log(err)

@@ -71,7 +71,7 @@ function PrivateRoutes() {
                   <div className="notification"></div>
                   <div className="user-info">
                     <div className="user__descr">
-                      <div className="user__name">{first_name}{last_name}</div>
+                      <div className="user__name">{first_name}</div>
                       <div className="user__email">{email}</div>
                     </div>
                     <div className="user__img">

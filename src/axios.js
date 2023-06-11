@@ -10,7 +10,7 @@ http.interceptors.request.use(
      if(token){
          config.headers["Authorization"] = `Bearer ${token}`;
      }
-    //   config.headers["Accept"] = "application/json";
+      // config.headers["Accept"] = "application/json";
 
       // 'resolve.fallback: { "http": require.resolve("stream-http") }'
       // resolve.fallback:{ "http": false }
