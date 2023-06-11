@@ -25,7 +25,7 @@ function Registrate4() {
   } 
   const submitRegister =(e)=>{
     e.preventDefault()
-    http.post('/partner/rooms/additional_info/create/' , {
+    http.post('/partner/hotel/additional_info/create/' , {
       hotel: id-0,
       description: des,
       how_to_get: information,
@@ -35,7 +35,7 @@ function Registrate4() {
         setActive(true)
         setTimeout(() => {
           setActive(false)
-          navigate('/')
+          navigate('/object-manage')
         }, 1500)
       }
     })

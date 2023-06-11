@@ -5,6 +5,7 @@ import MyButton from "../MyButton/MyButton";
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import "./MyForm.scss";
 import http from "../../axios";
+import { useNavigate } from "react-router";
 function MyForm({ children, type, ...props }) {
   let data = {
     signin: {
@@ -26,6 +27,7 @@ function MyForm({ children, type, ...props }) {
       link: "/singin",
     },
   };
+  const navigate = useNavigate()
   const handeleForm = useGoogleLogin({
         onSuccess: (codeResponse) => {
    
@@ -37,7 +39,8 @@ function MyForm({ children, type, ...props }) {
                       localStorage.setItem('id' , res.data.id)
                       console.log(res)
                         if(res.status === 200){
-                          window.location.reload()
+                         navigate('/object-manage')
+                         window.location.reload()
                         }
                     
                     }).catch((err)=>{

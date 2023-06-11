@@ -4,6 +4,7 @@ import NavBar from "../../../components/NavBar/NavBar";
 import "./PrivateRoutes.scss";
 import { Link } from "react-router-dom";
 import userImg from "./../../../assets/images/user-img.png";
+import { useNavigate } from "react-router";
 function PrivateRoutes() {
   const location = useLocation();
   const currentUrl = location.pathname;
@@ -46,6 +47,13 @@ function PrivateRoutes() {
       }
     });
   }, []);
+  const navigate = useNavigate()
+  const logoutClick =()=>{
+    localStorage.removeItem('token')
+    localStorage.removeItem('id')
+      navigate('/')
+    window.location.reload()
+  }
   return (
     <div>
       <div className="object-manage">
@@ -70,7 +78,7 @@ function PrivateRoutes() {
                     <div onClick={openMenu} className="burger__icon"></div>
                     <div className="burger__navs">
                       <div className="burger__item">
-                        <Link to={"/"}>Мои объекты</Link>
+                        <Link to={"/object-manage"}>Мои объекты</Link>
                       </div>
                       <div className="burger__item">
                         <Link to={"/registre-new-object/1"}>
@@ -84,7 +92,7 @@ function PrivateRoutes() {
                         <Link to={"/"}>Отзывы</Link>
                       </div>
                       <div className="burger__item">
-                        <span >Выйти</span>
+                        <a  onClick={logoutClick} >Выйти</a>
                       </div>
                     </div>
                   </div>

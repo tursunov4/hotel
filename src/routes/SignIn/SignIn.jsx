@@ -4,10 +4,12 @@ import MyForm from "../../components/MyForm/MyForm";
 import MyInput from "../../components/MyInput/MyInput";
 import Modal from "../../components/Modal/Modal";
 import http from "../../axios";
+import { useNavigate } from "react-router";
 function SignIn() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate()
   //user@example.com
   //string3030
   const onSubmitForm =(e) =>{
@@ -20,6 +22,7 @@ function SignIn() {
        localStorage.setItem('token' , res.data.tokens.access)
        localStorage.setItem('id', res.data.id)
       if(res.status === 200){
+        navigate('/object-manage')
         window.location.reload()
         console.log(res)
       }
