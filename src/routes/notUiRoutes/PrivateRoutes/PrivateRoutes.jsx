@@ -8,6 +8,10 @@ import { useNavigate } from "react-router";
 function PrivateRoutes() {
   const location = useLocation();
   const currentUrl = location.pathname;
+  const first_name = localStorage.getItem('firstname')
+  const last_name = localStorage.getItem('lastname')
+  const image = localStorage.getItem('image')
+  const email = localStorage.getItem('email')
   const titles = [
     {
       path: "/object-manage",
@@ -67,11 +71,11 @@ function PrivateRoutes() {
                   <div className="notification"></div>
                   <div className="user-info">
                     <div className="user__descr">
-                      <div className="user__name">Иванов Иван</div>
-                      <div className="user__email">username@mail.ru</div>
+                      <div className="user__name">{first_name}{last_name}</div>
+                      <div className="user__email">{email}</div>
                     </div>
                     <div className="user__img">
-                      <img src={userImg} alt="user" />
+                      <img className="userrrimg" width={40} height={40} src={image} alt="user" />
                     </div>
                   </div>
                   <div className="burger">
@@ -86,10 +90,10 @@ function PrivateRoutes() {
                         </Link>
                       </div>
                       <div className="burger__item">
-                        <Link to={"/"}>Бронирования</Link>
+                        <Link to={"/fdasfd"}>Бронирования</Link>
                       </div>
                       <div className="burger__item">
-                        <Link to={"/"}>Отзывы</Link>
+                        <Link to={"/asdfasfd"}>Отзывы</Link>
                       </div>
                       <div className="burger__item">
                         <a  onClick={logoutClick} >Выйти</a>
