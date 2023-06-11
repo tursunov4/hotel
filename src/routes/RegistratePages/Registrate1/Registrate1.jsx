@@ -6,9 +6,12 @@ import MyButton from "../../../components/MyButton/MyButton";
 import http from "../../../axios";
 import { useNavigate } from "react-router";
 import axios from "axios";
-const id = localStorage.getItem('id')
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Registrate1() {
+  const id = localStorage.getItem('id')
+
   const [data, setData] = useState({
     nameOtel: "",
     address: "",
@@ -21,6 +24,7 @@ function Registrate1() {
   const [button , setButton] = useState(false)
   const [addres , setAdres] = useState('')
   const navigate = useNavigate()
+  const notify = (text) => toast(`${text}`);
  
   const sendToMainInfo =(e)=>{
     e.preventDefault()
@@ -41,7 +45,7 @@ function Registrate1() {
         navigate(`/register-single/${res.data.id}`)
       }
     }).catch((err) =>{
-      console.log(err)
+      notify( 'ошибка ввода !!!' )
     })
   }
   const mapState = {
@@ -67,6 +71,9 @@ function Registrate1() {
   }
   return (
     <form  className="registr">
+         <ToastContainer
+              autoClose={1500}              
+       />
       <div className="raw">
         <RegisterObjForm data={data} setData={setData} />
         <div className="map_component">

@@ -7,6 +7,8 @@ import AddNumber from "../components/AddNumber/AddNumber";
 import { useNavigate, useParams } from "react-router";
 import Modal from "../../../components/Modal/Modal";
 import ReactPaginate from 'react-paginate';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import http from "../../../axios";
 function Registrate3() {
   const [show, setShow] = useState(false)
@@ -15,6 +17,7 @@ function Registrate3() {
   const { id } = useParams()
   const navigate = useNavigate()
   const [item , setItem] = useState({})
+  
   console.log(id)
   useEffect(()=>{
    http.get(`/partner/hotels/${id}/rooms/`).then((res) =>{
@@ -22,6 +25,7 @@ function Registrate3() {
     setRooms(res.data)
    })
   },[])
+  const notify = (text) => toast(`${text}`);
   const editRooms =(item)=>{
     setItem(item)
     setShow(true)
@@ -33,7 +37,7 @@ function Registrate3() {
         window.location.reload()
       }
     }).catch((err) =>{
-      console.log(err)
+      notify( 'ошибка ввода !!!' )
     })
   }
   const handleNext =()=>{
@@ -48,6 +52,9 @@ const startIndex = currentPage * itemsPerPage;
 const visibleItems = rooms.slice(startIndex, startIndex + itemsPerPage);
   return (
     <div className="registr-3 table">
+         <ToastContainer
+              autoClose={1500}              
+       />
       <AddNumber setItem={setItem} setActive={setShow}  id={id} isActive={show} edit={edits} item={item} />
       <div className="row">
         <div className="table__title">Номера и цены </div>

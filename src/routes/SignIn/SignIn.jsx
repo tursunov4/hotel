@@ -5,11 +5,15 @@ import MyInput from "../../components/MyInput/MyInput";
 import Modal from "../../components/Modal/Modal";
 import http from "../../axios";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function SignIn() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate()
+  const notify = (text) => toast(`${text}`);
+  
   //user@example.com
   //string3030
   const onSubmitForm =(e) =>{
@@ -30,10 +34,14 @@ function SignIn() {
       
       }).catch((err) =>{
         console.log(err)
+        notify( 'ошибка ввода !!!' )
       })
   }
   return (
     <div>
+       <ToastContainer
+              autoClose={1500}              
+       />
       <MyForm onSubmit={(e) => onSubmitForm(e)} type="signin">
         <Modal isActive={!!error} text={error} />
         <label className="input">

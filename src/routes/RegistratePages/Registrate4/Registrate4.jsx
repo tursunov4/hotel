@@ -5,6 +5,8 @@ import MyButton from "../../../components/MyButton/MyButton";
 import Modal from "../../../components/Modal/Modal";
 import { useNavigate, useParams } from "react-router";
 import http from "../../../axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Registrate4() {
   const [active , setActive] = useState(false)
   const { id } = useParams()
@@ -13,6 +15,7 @@ function Registrate4() {
   const [des , setDes] = useState('')
   const [image , setImage] = useState('')
   const navigate = useNavigate()
+  const notify = (text) => toast(`${text}`);
   if(image){
     const form = new FormData()
     form.append('image' , image)
@@ -21,6 +24,9 @@ function Registrate4() {
       if(res.status === 201){
         setImageArr([...imagearr , res.data.id])
       }
+    }).catch((err)=>{
+      console.log(err)
+      notify( 'ошибка ввода !!!' )
     })
   } 
   const submitRegister =(e)=>{
@@ -38,11 +44,17 @@ function Registrate4() {
           navigate('/object-manage')
         }, 1500)
       }
+    }).catch((err)=>{
+      console.log(err)
+      notify( 'ошибка ввода !!!' )
     })
   }
 
   return (
     <div className="registr-4">
+        <ToastContainer
+              autoClose={1500}              
+       />
       <Modal
         isActive={active}
         text={

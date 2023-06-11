@@ -5,6 +5,8 @@ import Cat from "./../../../../assets/images/Cat.png";
 import MyButton from "../../../../components/MyButton/MyButton";
 import http from "../../../../axios";
 import close from '../../../../assets/icons/close.svg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function AddNumber({ setActive, isActive , setItem,item , id , edit}) {
   const [animalclass , setAnimalsClass] = useState(true)
   const [tip ,setTip] = useState(item.tip_nomer)
@@ -13,7 +15,7 @@ function AddNumber({ setActive, isActive , setItem,item , id , edit}) {
   const[size ,setSize] = useState(item.size)
   const[animals, setAnimals] = useState('Кошки')
   const[base_price , setPrice] = useState(item.base_price)
-
+  const notify = (text) => toast(`${text}`);
   const animalHandle =()=>{
     setAnimals('Кошки')
     setAnimalsClass(true)
@@ -38,6 +40,7 @@ function AddNumber({ setActive, isActive , setItem,item , id , edit}) {
       }
     }).catch((err)=>{
       console.log(err)
+      notify( 'ошибка ввода !!!' )
     })
   }
  const handleEdit=()=>{
@@ -56,6 +59,7 @@ function AddNumber({ setActive, isActive , setItem,item , id , edit}) {
     }
   }).catch((err)=>{
     console.log(err)
+    notify( 'ошибка ввода !!!' )
   })
  }
  const closeClick=()=>{
@@ -70,6 +74,9 @@ function AddNumber({ setActive, isActive , setItem,item , id , edit}) {
  }
   return (
     <div className={isActive ? "active add-number" : "add-number"}>
+        <ToastContainer
+              autoClose={1500}              
+       />
       <div className="add-number__content">
       <img width={25} onClick={closeClick}  src={close} alt="dsaf" className="add__number-icon" />
         <h2 className="add-number__title">Добавление номера</h2>

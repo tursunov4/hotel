@@ -6,6 +6,8 @@ import axiosInstance from "../../axios";
 import Modal from "../../components/Modal/Modal";
 import http from "../../axios";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function SignUp() {
   const [firstname, setFirstname] = useState("");
   const [username, setUsername] = useState("");
@@ -14,30 +16,8 @@ function SignUp() {
   const [password2, setPassword2] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate()
-  // function onsubmitForm(e) {
-  //   e.preventDefault();
-  //   axiosInstance
-  //     .post("/partner/register/", {
-  //       username,
-  //       firstname,
-  //       email,
-  //       password,
-  //       password2,
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       if (error.response) {
-  //         console.log(error.response);
-  //         setError(error.response.data.email);
-  //         setTimeout(() => {
-  //           setError(null);
-  //         }, 5000);
-  //       }
-  //     });
-  //   console.log(username, firstname, email, password, password2);
-  // }
+  const notify = (text) => toast(`${text}`);
+  
   const onsubmitForm =(e)=>{
     e.preventDefault()
     http.post('/partner/register/' , {
@@ -53,10 +33,15 @@ function SignUp() {
       }
     }).catch((err) =>{
       console.log(err)
+      notify(err.response.data.email , err.response.data.email )
     })
   }
   return (
     <div>
+         <ToastContainer
+              autoClose={1500}  
+                 
+       />
       <Modal isActive={!!error} text={error} />
 
       <MyForm onSubmit={(e)=>onsubmitForm(e)} type="signup">
