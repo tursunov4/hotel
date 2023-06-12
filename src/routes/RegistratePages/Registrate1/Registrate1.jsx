@@ -31,7 +31,7 @@ function Registrate1() {
     http.post("/partner/hotels/create/" , {   
       partner: id-0,
     title:data.nameOtel,
-  website: data.address,
+  website:`https://${data.address}`,
   contact_info: data.contact,
   email: data.email,
   country: data.state,

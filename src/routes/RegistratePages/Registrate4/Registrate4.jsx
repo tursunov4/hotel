@@ -26,7 +26,11 @@ function Registrate4() {
       }
     }).catch((err)=>{
       console.log(err)
-      notify( 'ошибка ввода !!!' )
+      notify( `
+      ${err.response.data.image ?`${err.response.data.image}`  : ''}
+     }
+      
+      ` )
     })
   } 
   const submitRegister =(e)=>{
@@ -46,7 +50,12 @@ function Registrate4() {
       }
     }).catch((err)=>{
       console.log(err)
-      notify( 'ошибка ввода !!!' )
+      notify( `
+      ${err.response.data.description ?`объекта размещения - ${err.response.data.description}`  : ''}
+      ${err.response.data.how_to_get ?`Расскажите, как до вас добраться - ${err.response.data.how_to_get}`  : ''}
+     
+      
+      ` )
     })
   }
 

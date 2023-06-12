@@ -40,7 +40,14 @@ function AddNumber({ setActive, isActive , setItem,item , id , edit}) {
       }
     }).catch((err)=>{
       console.log(err)
-      notify( 'ошибка ввода !!!' )
+      notify( `
+      ${err.response.data.tip_nomer ?`Тип номера - ${err.response.data.tip_nomer}`  : ''}
+      ${err.response.data.numbers ?`Количество мест в номере - ${err.response.data.numbers}`  : ''}
+      ${err.response.data.capacity ?`Количество - ${err.response.data.capacity}`  : ''}
+      ${err.response.data.size ?`Размер номера (кв.м) - ${err.response.data.size}`  : ''}
+      ${err.response.data.base_price ?`Базовая цена номера - ${err.response.data.base_price}`  : ''}
+      
+      ` )
     })
   }
  const handleEdit=()=>{
@@ -59,7 +66,14 @@ function AddNumber({ setActive, isActive , setItem,item , id , edit}) {
     }
   }).catch((err)=>{
     console.log(err)
-    notify( 'ошибка ввода !!!' )
+    notify( `
+    ${err.response.data.tip_nomer ?`Тип номера - ${err.response.data.tip_nomer}`  : ''}
+    ${err.response.data.numbers ?`Количество мест в номере - ${err.response.data.numbers}`  : ''}
+    ${err.response.data.capacity ?`Количество - ${err.response.data.capacity}`  : ''}
+    ${err.response.data.size ?`Размер номера (кв.м) - ${err.response.data.size}`  : ''}
+    ${err.response.data.base_price ?`Базовая цена номера - ${err.response.data.base_price}`  : ''}
+    
+    ` )
   })
  }
  const closeClick=()=>{
