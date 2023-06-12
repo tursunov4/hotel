@@ -38,7 +38,7 @@ function SignIn() {
       
       }).catch((err) =>{
         console.log(err)
-        notify( 'ошибка ввода !!!' )
+        notify( `${err.response.data.password ? err.response.data.password :'' } ${err.response.data.message ? err.response.data.message : '' }` )
       })
   }
   return (

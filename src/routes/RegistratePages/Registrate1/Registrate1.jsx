@@ -45,7 +45,11 @@ function Registrate1() {
         navigate(`/register-single/${res.data.id}`)
       }
     }).catch((err) =>{
-      notify( 'ошибка ввода !!!' )
+      notify( `${err.response.data.title ?`Название отеля - ${err.response.data.title}`  : ''} ${err.response.data.website ?`Название адрес сайта - ${err.response.data.website}`  : ''} ${err.response.data.contact_info ?`Контактное лицо - ${err.response.data.contact_info}`  : ''} 
+       ${err.response.data.country ?` Страна - ${err.response.data.country}`  : ''}
+       ${err.response.data.city ?`Город - ${err.response.data.city}`  : ''}
+       ${err.response.data.address ?`Улица и номер дома - ${err.response.data.address}`  : ''}
+        ` )
     })
   }
   const mapState = {
