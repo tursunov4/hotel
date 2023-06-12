@@ -54,20 +54,21 @@ function Registrate1() {
   };
   
   const [placemarkGeometry, setPlacemarkGeometry] = useState([55.751574, 37.573856]); // Начальное значение - нет метки
-  const [state , setState] = useState('')
+
   const handleMapClick = (event) => {
     const clickedCoordinates = event.get("coords");
 
     setPlacemarkGeometry(clickedCoordinates); // Устанавливаем координаты для новой метки
     console.log(clickedCoordinates);
-  };
-  const handleButton1 =()=>{
-    setButton(true)
-    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=a1790995-bbe5-41eb-8c22-35713a9dbbb8&format=json&geocode=${placemarkGeometry[1]},${placemarkGeometry[0]}`).then((res)=>{
+    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=a1790995-bbe5-41eb-8c22-35713a9dbbb8&format=json&geocode=${clickedCoordinates[1]},${clickedCoordinates[0]}`).then((res)=>{
       setAdres(res.data.response.GeoObjectCollection.featureMember[0].GeoObject.metaDataProperty.GeocoderMetaData.Address.formatted)
   }).catch((err)=>{
     console.log(err)
   })
+  };
+  const handleButton1 =()=>{
+    setButton(true)
+   
   }
   return (
     <form  className="registr">
