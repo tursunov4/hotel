@@ -52,8 +52,7 @@ function Registrate4() {
       console.log(err)
       notify( `
       ${err.response.data.description ?`объекта размещения - ${err.response.data.description}`  : ''}
-      ${err.response.data.how_to_get ?`Расскажите, как до вас добраться - ${err.response.data.how_to_get}`  : ''}
-     
+      ${err.response.data.how_to_get ?`Расскажите, как до вас добраться - ${err.response.data.how_to_get}`  : ''}    
       
       ` )
     })

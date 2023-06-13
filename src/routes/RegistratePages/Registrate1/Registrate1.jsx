@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Registrate1.scss";
 import RegisterObjForm from "../components/RegisterObjForm";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
@@ -25,12 +25,12 @@ function Registrate1() {
   const [addres , setAdres] = useState('')
   const navigate = useNavigate()
   const notify = (text) => toast(`${text}`);
- 
+
   const sendToMainInfo =(e)=>{
     e.preventDefault()
     http.post("/partner/hotels/create/" , {   
-      partner: id-0,
-    title:data.nameOtel,
+  partner: id-0,
+  title:data.nameOtel,
   website:`https://${data.address}`,
   contact_info: data.contact,
   email: data.email,
@@ -54,10 +54,10 @@ function Registrate1() {
   }
   const mapState = {
     center: [55.751574, 37.573856],
-    zoom: 10,
+    zoom: 5,
   };
   
-  const [placemarkGeometry, setPlacemarkGeometry] = useState([55.751574, 37.573856]); // Начальное значение - нет метки
+  const [placemarkGeometry, setPlacemarkGeometry] = useState([]); // Начальное значение - нет метки
 
   const handleMapClick = (event) => {
     const clickedCoordinates = event.get("coords");
@@ -72,8 +72,15 @@ function Registrate1() {
   };
   const handleButton1 =()=>{
     setButton(true)
-   
+    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=a1790995-bbe5-41eb-8c22-35713a9dbbb8&format=json&geocode=${ `${data.state}${data.city}${data.street}`}`).then((res)=>{
+      setPlacemarkGeometry([res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')[1]-0 , res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')[0]-0])    
+      setAdres(`${data.state} ${data.city} ${data.street}`) 
+    }).catch((err)=>{
+      console.log(err)
+    })
   }
+
+  console.log(placemarkGeometry)
   return (
     <form  className="registr">
          <ToastContainer
