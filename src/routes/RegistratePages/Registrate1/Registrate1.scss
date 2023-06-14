@@ -6,6 +6,7 @@
     max-width: 1080px;
     gap: 40px;
   }
+
   .regist-form {
     max-width: 498px;
     color: #000000;
@@ -74,6 +75,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
   }
   .raw{
     display: flex;
@@ -81,7 +83,27 @@
     justify-content: center;
     align-items: center;
   }
+  .map_component{
+    display: none;
+  }
+  .registr__button{
+    display: none;
+  }
+ 
 }
 @media screen and (max-width:620px) {
+  
+}
+.register-button22{
+  display: none;
+
+}
+@media screen and (max-width:912px) {
+  .register-button22{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
   
 }

@@ -68,8 +68,19 @@ line-height: 16px;
 
 color: #000000;
 }
+
 @media screen and (max-width: 488px) {
     .object_list{
         gap: 20px;
     }
   }
+  .table__btnss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .table__btnss img{
+    cursor: pointer;
+  }
+ 

@@ -8,9 +8,9 @@ import NotFound from "./routes/notUiRoutes/NotFound/NotFound";
 import ObjectManage from "./routes/ObjectManage/ObjectManage";
 import RegistrNewObj from "./routes/RegistrNewObj/RegistrNewObj";
 import Registrate1 from "./routes/RegistratePages/Registrate1/Registrate1";
-import Registrate2 from "./routes/RegistratePages/Registrate2/Registrate2";
 import Registrate3 from "./routes/RegistratePages/Registrate3/Registrate3";
 import Registrate4 from "./routes/RegistratePages/Registrate4/Registrate4";
+import SingleMap from "./routes/RegistratePages/Registrate2/SingleMap";
 
 function App() {
   const token = localStorage.getItem('token')
@@ -29,6 +29,7 @@ function App() {
             </Route>
             <Route children path="/register-single/:id" element={<Registrate3 />} />
             <Route children path="/register-next/:id" element={<Registrate4 />} />
+            <Route path="/regiter-map/:id" element={<SingleMap/>} />
             <Route path="*" element={<NotFound />} />
           </Route>
         {/* </Route> */}

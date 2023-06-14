@@ -33,7 +33,13 @@ function SignUp() {
       }
     }).catch((err) =>{
       console.log(err)
-      notify(err.response.data.email , err.response.data.email )
+      notify( 
+      
+        `
+        ${err.response.data.email ? err.response.data.email :''}
+        ${err.response.data.username ? err.response.data.username :''}
+        `
+        )
     })
   }
   return (

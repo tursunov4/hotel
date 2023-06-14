@@ -1,56 +1,29 @@
-@media screen and (max-width: 1250px) {
-  .registr.registr-2 {
-    .map_component {
-      display: block;
-      max-width: 688px;
-    }
-    .raw {
-      justify-content: center;
-    }
-    .name__location {
-      display: block;
-    }
-    .regist-form {
-      display: none;
-    }
-  }
-}
+.singlemap{
 
-@media screen and (max-width: 950px) {
-  .registr.registr-2 {
-    .map_component {
-      width: 100%;
-      max-width: 688px;
-      height: 734px;
-    }
-    .bottom-form {
-      margin-top: 40px;
-    }
-  }
 }
-
-@media screen and (max-width: 720px) {
-  .registr.registr-2 {
-    .map_component {
-      height: 600px;
-    }
-  }
+.map_component2{
+  margin: 0 auto;
+  width: 90%;
+  height: 450px;
 }
-
-@media screen and (max-width: 420px) {
-  .registr.registr-2 {
-    .bottom-form {
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
-    }
-  }
+.addres__map-text{
+  max-width: 400px;
+  background: #F7F7F7;
+border-radius: 5px;
+padding: 15px;
 }
-
-@media screen and (max-width: 360px) {
-  .registr.registr-2 {
-    .map_component {
-      height: 382px;
-    }
+.addres-map__form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.btn-map{
+  margin-left: 10px;
+}
+@media screen and (max-width:430px) {
+  .addres-map__form{
+    flex-direction: column;
+    gap: 15px;
   }
 }
