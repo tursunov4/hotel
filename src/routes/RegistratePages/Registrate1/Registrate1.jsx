@@ -79,8 +79,6 @@ function Registrate1() {
       country: data.state,
       city: data.city,
       address: data.street,
-
-    
         }).then((res) =>{
           console.log(res.data)
           if(res.status === 201){

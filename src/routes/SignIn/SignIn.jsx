@@ -29,16 +29,14 @@ function SignIn() {
        localStorage.setItem('lastname' , res.data.last_name)
        localStorage.setItem('image' ,res.data.image_url)
        localStorage.setItem('email' , res.data.email_or_username)
-      if(res.status === 200){
-    
+      if(res.status === 200){    
         navigate('/object-manage')
-        console.log(res)
+        window.location.reload()
       }
-   
       
       }).catch((err) =>{
-        console.log(err)
-        notify( `${err.response.data.password ? err.response.data.password :'' } ${err.response.data.message ? err.response.data.message : '' }` )
+   
+        notify( `${err.response.data.password ? err.response.data.password :' ' } ${err.response.data.message ? err.response.data.message : '' }` )
       })
   }
   return (
