@@ -22,6 +22,7 @@ function Registrate1() {
     city: "",
     street: "",
   });
+  const apikey = 'a1790995-bbe5-41eb-8c22-35713a9dbbb8'
   const [button , setButton] = useState(false)
   const [addres , setAdres] = useState('')
   const [hotelid , setHotelid] = useState('')
@@ -53,7 +54,7 @@ function Registrate1() {
 
     setPlacemarkGeometry(clickedCoordinates); // Устанавливаем координаты для новой метки
     console.log(clickedCoordinates);
-    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=a1790995-bbe5-41eb-8c22-35713a9dbbb8&format=json&geocode=${clickedCoordinates[1]},${clickedCoordinates[0]}`).then((res)=>{
+    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=${apikey}&format=json&geocode=${clickedCoordinates[1]},${clickedCoordinates[0]}`).then((res)=>{
       setAdres(res.data.response.GeoObjectCollection.featureMember[0].GeoObject.metaDataProperty.GeocoderMetaData.Address.formatted)
   }).catch((err)=>{
     console.log(err)
@@ -61,7 +62,7 @@ function Registrate1() {
   };
   const handleButton1 =()=>{
     setButton(true)
-    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=a1790995-bbe5-41eb-8c22-35713a9dbbb8&format=json&geocode=${ `${data.state}${data.city}${data.street}`}`).then((res)=>{
+    axios.get( `https://geocode-maps.yandex.ru/1.x/?apikey=${apikey}&format=json&geocode=${ `${data.state}${data.city}${data.street}`}`).then((res)=>{
       setPlacemarkGeometry([res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')[1]-0 , res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')[0]-0])    
       setLocations([res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')[1]-0 , res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')[0]-0])    
       setAdres(`${data.state} ${data.city} ${data.street}`) 
