@@ -30,8 +30,8 @@ function SignIn() {
        localStorage.setItem('image' ,res.data.image_url)
        localStorage.setItem('email' , res.data.email_or_username)
       if(res.status === 200){
+    
         navigate('/object-manage')
-        window.location.reload()
         console.log(res)
       }
    
